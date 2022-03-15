@@ -313,3 +313,28 @@ postgresql:
   pgPass: *MasterDBPass
   # postgresql.existingSecret -- Name of existing secret that holds passwords for PostgreSQL
   existingSecret: postgrescredentials
+
+# See https://github.com/datopian/ckan-cloud-helm/blob/master/ckan/templates/cronjobs.yaml for details
+cronjobs:
+  - name: ckan-tracking
+    # image: viderum/ckan-cloud-docker:ckan-v0.0.9
+    image: keitaro/ckan:2.9.2
+    # hourly
+    schedule: '0 * * * *'
+    command: ckan
+    args:
+      - -c
+      - production.ini
+      - tracking
+      - update
+  - name: ckan-search-rebuilder
+    image: keitaro/ckan:2.9.2
+    # nightly at midnight
+    schedule: '0 0 * * *' 
+    command: ckan
+    args:
+      - -c
+      - production.ini
+      - search-index
+      - rebuild
+      - -r
