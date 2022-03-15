@@ -316,7 +316,7 @@ postgresql:
 
 # See https://github.com/datopian/ckan-cloud-helm/blob/master/ckan/templates/cronjobs.yaml for details
 cronjobs:
-  - name: ckan-tracking
+  - name: ckan-update-page-tracking
     # image: viderum/ckan-cloud-docker:ckan-v0.0.9
     image: keitaro/ckan:2.9.2
     # hourly
@@ -327,7 +327,7 @@ cronjobs:
       - production.ini
       - tracking
       - update
-  - name: ckan-search-rebuilder
+  - name: ckan-rebuild-search-index
     image: keitaro/ckan:2.9.2
     # nightly at midnight
     schedule: '0 0 * * *' 

@@ -1,5 +1,32 @@
-CKAN Helm Chart
+CKAN Helm Chart (Marv fork)
 ==========
+
+<!-- You can add instruction in the README.md for charts installation like this (replace <alias>, <orgname>, and <chart-name>): -->
+
+## Usage
+
+[Helm](https://helm.sh) must be installed to use the charts.  Please refer to
+Helm's [documentation](https://helm.sh/docs) to get started.
+
+Once Helm has been set up correctly, add the repo as follows:
+
+    helm repo add ckan-helm https://marvell-consulting.github.io/ckan-helm
+
+
+If you had already added this repo earlier, run `helm repo update` to retrieve
+the latest versions of the packages.  You can then run `helm search repo
+ckan-helm` to see the charts.
+
+To install the ckan chart:
+
+    helm install ckan ckan-helm/ckan
+
+To uninstall the chart:
+
+    helm delete ckan
+
+### From Keitaro:
+
 
 [![License][]][1][![Chat on Gitter][]][2]
 
