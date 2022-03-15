@@ -8,12 +8,16 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      CR_TOKEN: "${{ secrets.CR_TOKEN }}"
     steps:
       - name: test bash
         shell: bash
         env:
           CR_TOKEN: ${{ secrets.CR_TOKEN }}
         run: |
+          echo "$GITHUB_CONTEXT"
+          echo "is there a token-----"
           echo "$CR_TOKEN"
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,5 +35,3 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.3.0
-        env:
-          CR_TOKEN: "${{ secrets.CR_TOKEN }}"
