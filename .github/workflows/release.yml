@@ -9,6 +9,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+      - name: test bash
+        shell: bash
+        env:
+          CR_TOKEN: ${{ secrets.CR_TOKEN }}
+        run: |
+          echo "$CR_TOKEN"
       - name: Checkout
         uses: actions/checkout@v2
         with:
