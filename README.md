@@ -10,7 +10,7 @@ Helm's [documentation](https://helm.sh/docs) to get started.
 
 Once Helm has been set up correctly, add the repo as follows:
 
-    helm repo add ckan-helm https://marvell-consulting.github.io/ckan-helm
+    helm repo add ckan-helm https://marvell-consulting.github.io/ckan-helm-chart
 
 
 If you had already added this repo earlier, run `helm repo update` to retrieve
@@ -19,7 +19,7 @@ ckan-helm` to see the charts.
 
 To install the ckan chart:
 
-    helm install ckan ckan-helm/ckan
+    helm install ckan ckan-helm-chart/ckan
 
 To uninstall the chart:
 
